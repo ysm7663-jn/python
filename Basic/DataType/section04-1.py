@@ -166,28 +166,28 @@ print(complex('3'))  # 문자 -> 복소수
 print(complex(False))  # Bool -> 복소수
 
 # 수치 연산 함수
-print(abs(-7))
-x, y = divmod(100, 8)
+print(abs(-7))  # 절대값
+x, y = divmod(100, 8)   #x = 몫, y = 나머지
 print(x, y)
-print(pow(5, 3))
+print(pow(5, 3))    # pow(x, y) >> x의 y승
 
 #외부 모듈
 import math
 
 #ceil
-print(math.ceil(5.1))   # x 이상의 수 중에서 가장 작은 정수
-print(math.ceil(8.999))
+print(math.ceil(5.1))   # x 이상의 수 중에서 가장 작은 정수 / 6
+print(math.ceil(8.999)) # 9
 
 #floor
-print(math.floor(3.874)) # x 이하의 수 중에서 가장 큰 정수
-print(math.floor(-25.5))
+print(math.floor(3.874)) # x 이하의 수 중에서 가장 큰 정수  / 3
+print(math.floor(-25.5)) # -26
 
 #pi
-print(math.pi)
+print(math.pi)  # 3.141592
 
 # 그 밖에 함수는 아래 URL 참조
 # https://docs.python.org/3/library/math.html
 
 
 # 2진수 변환
-print(bin(50)) #0b로 시작
+print(bin(50)) #0b로 시작 / 0b110010
