@@ -18,7 +18,7 @@ print('d - ', d[1])
 print('d - ', d[0] + d[1] + d[1])
 print('d - ', d[-1])
 print('e - ', e[-1][1])
-print('e - ', e[-1][1][4])
+#print('e - ', e[-1][1][4])
 print('e - ', list(e[-1][1]))
 
 # 슬라이싱
@@ -35,6 +35,7 @@ print('c * 3 - ', c * 3)
 print("'hi' + c[0] - ", 'hi' + str(c[0]))
 
 # 리스트 수정, 삭제
+# c = [1, 2, 3, 4]
 print('#=====#')
 c[0] = 4
 print('c - ', c)
@@ -44,7 +45,7 @@ c[1] = ['a', 'b', 'c']
 print('c - ', c)
 c[1:3] = []
 print('c - ', c)
-del c[3]
+del c[3]    # 삭제
 print('c - ', c)
 
 # 리스트 함수
