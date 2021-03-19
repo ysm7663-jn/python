@@ -19,7 +19,7 @@ print('d - ', d[0] + d[1] + d[1])
 print('d - ', d[-1])
 print('e - ', e[-1][1])
 #print('e - ', e[-1][1][4])
-print('e - ', list(e[-1][1]))
+print('e - ', list(e[-1][1]))   # ['C', 'a', 'p']
 
 # 슬라이싱
 print('#=====#')
@@ -86,7 +86,8 @@ while a:
     l = a.pop()
     print(2 is l)
 
-# 튜플 자료형(순서O, 중복O, 수정X,삭제X)
+# 튜플 자료형(순서O, 중복O, 수정X, 삭제X)
+# 변경되지 않는 중요한 정보들을 저장할 때 사용
 
 # 선언
 a = ()
@@ -97,13 +98,13 @@ e = (10, 100, ('Pen', 'Cap', 'Plate'))
 
 # 인덱싱
 print('#=====#')
-print('d - ', type(d), d)
-print('d - ', d[1])
-print('d - ', d[0] + d[1] + d[1])
-print('d - ', d[-1])
-print('e - ', e[-1][1])
-print('e - ', e[-1][1][4])
-print('e - ', list(e[-1][1]))
+print('d - ', type(d), d) # (10, 100, 'Pen', 'Cap', 'Plate')
+print('d - ', d[1]) # 100
+# print('d - ', d[0] + d[1] + d[1])
+print('d - ', d[-1])    # 'Plate'
+print('e - ', e[-1][1]) # 'Cap'
+# print('e - ', e[-1][1][4])
+print('e - ', list(e[-1][1]))   # ['C', 'a', 'p']
 
 # 슬라이싱
 print('#=====#')
