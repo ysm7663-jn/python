@@ -108,16 +108,16 @@ print('e - ', list(e[-1][1]))   # ['C', 'a', 'p']
 
 # 슬라이싱
 print('#=====#')
-print('d - ', d[0:3])
-print('d - ', d[2:])
-print('e - ', e[2][1:3])
+print('d - ', d[0:3])   # (10, 100, 'Pen')
+print('d - ', d[2:])    # ('Pen', 'Cap', 'Plate')
+print('e - ', e[2][1:3])# ('Cap', 'Plate')
 
 # 튜플 연산
 print('#=====#')
-print('c + d - ', c + d)
-print('c * 3 - ', c * 3)
+print('c + d - ', c + d)    # (1, 2, 3, 4, 10, 100, 'Pen', 'Cap', 'Plate')
+print('c * 3 - ', c * 3)    # (1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4)
 # print("c[0] + 'hi' - ",c[0] + 'hi')
-print("'hi' + c[0] - ", 'hi' + str(c[0]))
+print("'hi' + c[0] - ", 'hi' + str(c[0]))    # hi1
 
 # 튜플 함수
 a = (5, 2, 3, 1, 4)
