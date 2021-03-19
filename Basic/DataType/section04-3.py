@@ -122,6 +122,7 @@ print("'hi' + c[0] - ", 'hi' + str(c[0]))    # hi1
 # 튜플 함수
 a = (5, 2, 3, 1, 4)
 
-print('a - ', a)
-print('a - ', a.index(5))
-print('a - ', a.count(4))
+print('a - ', a)    # (5, 2, 3, 1, 4)
+print('a - ', a.index(5)) # 3 원소의 index : 0
+print('a - ', a.index(3)) # 3 원소의 index : 2
+print('a - ', a.count(4)) # 4의 개수 : 1
