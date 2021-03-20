@@ -44,23 +44,24 @@ temp = list(a.keys())
 print('a - ', temp[1:3]) # ['phone', 'birth']
 
 print('a - ', a.values()) # a -  dict_values(['Kim', '01012345678', '870124', 'seoul', (1, 2, 3)])
-print('b - ', b.values())
-print('c - ', c.values())
+print('b - ', b.values()) # b -  dict_values(['Hello python!', 'Hello Coding'])
+print('c - ', c.values()) # c -  dict_values([[1, 2, 3, 4]])
 
-print('a - ', list(a.values()))
-print('b - ', list(b.values()))
-print('c - ', list(c.values()))
+print('a - ', list(a.values())) # a -  ['Kim', '01012345678', '870124', 'seoul', (1, 2, 3)]
+print('b - ', list(b.values())) # b -  ['Hello python!', 'Hello Coding']
+print('c - ', list(c.values())) # c -  [[1, 2, 3, 4]]
 
-print('a - ', a.items())
-print('b - ', b.items())
-print('c - ', c.items())
+# items : (key, value) 와 같이 튜플의 형태를 띔
+print('a - ', a.items()) # a -  dict_items([('name', 'Kim'), ('phone', '01012345678'), ('birth', '870124'), ('address', 'seoul'), ('rank', (1, 2, 3))])
+print('b - ', b.items()) # b -  dict_items([(0, 'Hello python!'), (1, 'Hello Coding')])
+print('c - ', c.items()) # c -  dict_items([('arr', [1, 2, 3, 4])])
 
-print('a - ', list(a.items()))
-print('b - ', list(b.items()))
-print('c - ', list(c.items()))
+print('a - ', list(a.items())) # [('name', 'Kim'), ('phone', '01012345678'), ('birth', '870124'), ('address', 'seoul'), ('rank', (1, 2, 3))]
+print('b - ', list(b.items())) # [(0, 'Hello python!'), (1, 'Hello Coding')]
+print('c - ', list(c.items())) # [('arr', [1, 2, 3, 4])]
 
-print('a - ', 'name' in a)
-print('a - ', 'addr' in a)
+print('a - ', 'name' in a) # True
+print('a - ', 'addr' in a) # False
 
 # 집합(Sets) 자료형(순서X, 중복X)
 
