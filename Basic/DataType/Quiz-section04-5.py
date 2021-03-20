@@ -75,8 +75,8 @@ print('9번.', "NiceMan".lower())
 
 
 # 10. 다음 문자열을 슬라이싱을 이용해서 "cde"만 출력하세요. : "abcdefghijklmn"
-
-
+q10 = "abcdefghijklmn"
+print('10번.', q10[2:5])
 
 # 11. 다음 리스트에서 "Apple" 항목만 삭제하세요. : ["Banana", "Apple", "Orange"]
 
