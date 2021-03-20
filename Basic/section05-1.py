@@ -73,20 +73,20 @@ a = 100
 b = 60
 c = 15
 
-print('and : ', a > b and b > c)  # a > b > c
-print('or : ', a > b or b > c)
-print('not : ', not a > b)
-print('not : ', not b > c)
-print(not True)
-print(not False)
+print('and : ', a > b and b > c)  # a > b > c / True
+print('or : ', a > b or b > c) # True
+print('not : ', not a > b) # False
+print('not : ', not b > c) # False
+print(not True) # False
+print(not False) # True
 
 # 산술, 관계, 논리 우선순위
 # 산술 > 관계 > 논리 순서로 적용
 
-print('ex1 : ', 3 + 12 > 7 + 3)
-print('ex2 : ', 5 + 10 * 3 > 7 + 3 * 20)
-print('ex3 : ', 5 + 10 > 3 and 7 + 3 == 10)
-print('ex4 : ', 5 + 10 > 0 and not 7 + 3 == 10)
+print('ex1 : ', 3 + 12 > 7 + 3) # True
+print('ex2 : ', 5 + 10 * 3 > 7 + 3 * 20) # False
+print('ex3 : ', 5 + 10 > 3 and 7 + 3 == 10) # True
+print('ex4 : ', 5 + 10 > 0 and not 7 + 3 == 10) # False
 
 score1 = 90
 score2 = 'A'
@@ -139,13 +139,13 @@ else:
 
 # in, not in
 
-q = [1, 2, 3]
-w = {7, 8, 9, 9}
-e = {"name": 'Kim', "city": "seoul", "grade": "B"}
-r = (10, 12, 14)
+q = [1, 2, 3] # list
+w = {7, 8, 9, 9} # dictionary
+e = {"name": 'Kim', "city": "seoul", "grade": "B"} # dictionary
+r = (10, 12, 14) # tuple
 
-print(1 in q)
-print(6 in w)
-print(12 not in r)
-print("name" in e)  # key 검색
-print("seoul" in e.values())  # value 검색
+print(1 in q) # True
+print(6 in w) # False
+print(12 not in r)  # False
+print("name" in e)  # key 검색 / True
+print("seoul" in e.values())  # value 검색 / True
