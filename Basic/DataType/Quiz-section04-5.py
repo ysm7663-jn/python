@@ -79,8 +79,13 @@ q10 = "abcdefghijklmn"
 print('10번.', q10[2:5])
 
 # 11. 다음 리스트에서 "Apple" 항목만 삭제하세요. : ["Banana", "Apple", "Orange"]
-
-
+q11 = ["Banana", "Apple", "Orange"]
+del q11[1]
+print('11번.', q11)
+q11.insert(1, "Apple")
+print(q11)
+q11.remove("Apple")
+print('11번.', q11)
 
 
 # 12. 다음 튜플을 리스트로 변환하세요. : (1,2,3,4)
