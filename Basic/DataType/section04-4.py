@@ -32,15 +32,18 @@ a['rank'] = (1, 2, 3) # 튜플 추가
 print('a - ', a) # {'name': 'Kim', 'phone': '01012345678', 'birth': '870124', 'address': 'seoul', 'rank': (1, 2, 3)}
 
 # dict_keys, dict_values, dict_items : 반복문(iterate) 사용 가능
-print('a - ', a.keys())
-print('b - ', b.keys())
-print('c - ', c.keys())
+print('a - ', a.keys()) # a -  dict_keys(['name', 'phone', 'birth', 'address', 'rank'])
+print('b - ', b.keys()) # dict_keys([0, 1])
+print('c - ', c.keys()) # dict_keys(['arr'])
+# print(a.keys()[0]) : 에러 >> 리스트 형태이지만 리스트가 아니기 때문
+print('a - ', list(a.keys())) # a - ['name', 'phone', 'birth', 'address', 'rank']
+print('b - ', list(b.keys())) # b - [0, 1]
+print('c - ', list(c.keys())) # c - ['arr']
 
-print('a - ', list(a.keys()))
-print('b - ', list(b.keys()))
-print('c - ', list(c.keys()))
+temp = list(a.keys())
+print('a - ', temp[1:3]) # ['phone', 'birth']
 
-print('a - ', a.values())
+print('a - ', a.values()) # a -  dict_values(['Kim', '01012345678', '870124', 'seoul', (1, 2, 3)])
 print('b - ', b.values())
 print('c - ', c.values())
 
