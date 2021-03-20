@@ -71,128 +71,39 @@ b = set([1, 2, 3, 4])
 c = set([1, 4, 5, 6])
 d = set([1, 2, 'Pen', 'Cap', 'Plate'])
 
-print('a - ', type(a), a)
-print('b - ', type(b), b)
-print('c - ', type(c), c)
-print('d - ', type(d), d)
+print('a - ', type(a), a) # a -  <class 'set'> set()
+print('b - ', type(b), b) # b -  <class 'set'> {1, 2, 3, 4}
+print('c - ', type(c), c) # c -  <class 'set'> {1, 4, 5, 6}
+print('d - ', type(d), d) # d -  <class 'set'> {1, 2, 'Plate', 'Cap', 'Pen'}
 
 # 튜플 변환
 t = tuple(b)
-print('t - ', type(t), t)
-print('t - ', t[0], t[1:3])
+print('t - ', type(t), t) # t -  <class 'tuple'> (1, 2, 3, 4)
+print('t - ', t[0], t[1:3]) # t- 1 (2, 3) 
 
 # 리스트 변환
 l = list(c)
-print('l - ', type(l), l)
-print('l - ', l[0], l[1:3])
+print('l - ', type(l), l) # l -  <class 'list'> [1, 4, 5, 6]
+print('l - ', l[0], l[1:3]) # l - 1 [4, 5]
 
 # 집합 자료형 활용
 s1 = set([1, 2, 3, 4, 5, 6])
 s2 = set([4, 5, 6, 7, 8, 9])
 
-print('l - ', s1 & s2)
-print('l - ', s1.intersection(s2))
+print('l - ', s1 & s2) # l - {4, 5, 6}
+print('l - ', s1.intersection(s2)) # l - {4, 5, 6}
 
-print('l - ', s1 | s2)
+# 중복 값은 한 번만 출력
+print('l - ', s1 | s2) # l - {1, 2, 3, 4, 5 , 6, 7, 8, 9}
 print('l - ', s1.union(s2))
 
-print('l - ', s1 - s2)
+print('l - ', s1 - s2) # l - {1, 2, 3}
 print('l - ', s1.difference(s2))
 
 # 추가 & 제거
 s1 = set([1, 2, 3, 4])
-s1.add(5)
-print('s1 - ', s1)
+s1.add(5) 
+print('s1 - ', s1) # s1 - {1, 2, 3, 4, 5}
 
-s1.remove(2)
-print('s1 - ', s1)
-
-print('b - ', type(b), b)
-print('c - ', type(c), c)
-
-# 출력
-print('a - ', a['name'])  # 존재X -> 에러 발생
-print('a - ', a.get('name'))  # 존재X -> None 처리
-print('b - ', b[0])
-print('b - ', b.get(0))
-print('c - ', c['arr'])
-print('c - ', c['arr'][3])
-print('c - ', c.get('arr'))
-
-# 딕셔너리 추가
-a['address'] = 'seoul'
-print('a - ', a)
-a['rank'] = [1, 2, 3]
-print('a - ', a)
-
-# dict_keys, dict_values, dict_items : 반복문(iterate) 사용 가능
-print('a - ', a.keys())
-print('b - ', b.keys())
-print('c - ', c.keys())
-
-print('a - ', list(a.keys()))
-print('b - ', list(b.keys()))
-print('c - ', list(c.keys()))
-
-print('a - ', a.values())
-print('b - ', b.values())
-print('c - ', c.values())
-
-print('a - ', list(a.values()))
-print('b - ', list(b.values()))
-print('c - ', list(c.values()))
-
-print('a - ', a.items())
-print('b - ', b.items())
-print('c - ', c.items())
-
-print('a - ', list(a.items()))
-print('b - ', list(b.items()))
-print('c - ', list(c.items()))
-
-print('a - ', 'name' in a)
-print('a - ', 'addr' in a)
-
-# 집합(Sets) 자료형(순서X, 중복X)
-
-# 선언
-a = set()
-b = set([1, 2, 3, 4])
-c = set([1, 4, 5, 6])
-d = set([1, 2, 'Pen', 'Cap', 'Plate'])
-
-print('a - ', type(a), a)
-print('b - ', type(b), b)
-print('c - ', type(c), c)
-print('d - ', type(d), d)
-
-# 튜플 변환
-t = tuple(b)
-print('t - ', type(t), t)
-print('t - ', t[0], t[1:3])
-
-# 리스트 변환
-l = list(c)
-print('l - ', type(l), l)
-print('l - ', l[0], l[1:3])
-
-# 집합 자료형 활용
-s1 = set([1, 2, 3, 4, 5, 6])
-s2 = set([4, 5, 6, 7, 8, 9])
-
-print('l - ', s1 & s2)
-print('l - ', s1.intersection(s2))
-
-print('l - ', s1 | s2)
-print('l - ', s1.union(s2))
-
-print('l - ', s1 - s2)
-print('l - ', s1.difference(s2))
-
-# 추가 & 제거
-s1 = set([1, 2, 3, 4])
-s1.add(5)
-print('s1 - ', s1)
-
-s1.remove(2)
-print('s1 - ', s1)
+s1.remove(2) # 원소가 제거 / del : index가 제거
+print('s1 - ', s1) # s1 - {1, 3, 4, 5}
