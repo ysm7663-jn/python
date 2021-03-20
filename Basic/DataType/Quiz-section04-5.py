@@ -64,13 +64,13 @@ print('7번.', re.sub('[^0-9]', '', q7))
 
 
 # 8. 다음 문자열(URL)에서 "http://" 부분을 제거 후 출력하세요. : "http://daum.net"
-
-print('8번.')
+q8 = "http://daum.net"
+print('8번.', q8[7:])
 
 
 # 9. 다음 문자열을 모두 대문자, 소문자로 각각 출력해보세요. : "NiceMan"
 
-
+print('9번.',)
 
 
 # 10. 다음 문자열을 슬라이싱을 이용해서 "cde"만 출력하세요. : "abcdefghijklmn"
