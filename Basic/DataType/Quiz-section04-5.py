@@ -70,7 +70,8 @@ print('8번.', q8[7:])
 
 # 9. 다음 문자열을 모두 대문자, 소문자로 각각 출력해보세요. : "NiceMan"
 
-print('9번.',)
+print('9번.', "NiceMan".upper())
+print('9번.', "NiceMan".lower())
 
 
 # 10. 다음 문자열을 슬라이싱을 이용해서 "cde"만 출력하세요. : "abcdefghijklmn"
