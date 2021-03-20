@@ -17,7 +17,9 @@ print('2. \t',"apple;orange;banana;lemon")
 
 # 3. 화면에 * 기호 100개를 표시하세요.
 
-
+print('3.')
+for i in range(1, 100):
+    print('*')
  
 
 # 4. 문자열 "30" 을 각각 정수형, 실수형, 복소수형, 문자형으로 변환해보세요.
