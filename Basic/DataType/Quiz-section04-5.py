@@ -23,8 +23,11 @@ for i in range(1, 101):
  
 
 # 4. 문자열 "30" 을 각각 정수형, 실수형, 복소수형, 문자형으로 변환해보세요.
-
-
+A = "30"
+print('4. 정수형:\t', type(int(A)), int(A))
+print('   실수형:\t', type(float(A)), float(A))
+print('   복소수형:\t', type(complex(A)), complex(A))
+print('   문자형:\t', type(A), A)
 
 
 # 5. 다음 문자열 "Niceman" 에서 "man" 문자열만 추출해보세요.
