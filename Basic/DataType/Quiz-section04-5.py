@@ -117,10 +117,15 @@ print('14번.' , q13_dict)
 # 15. 13번에서 선언한 딕셔너리(dict)에서 Key 항목만 출력해보세요.
 
 
-
+print('15번.', q13_dict.keys())
+print('15번.', list(q13_dict.keys()))
+print('15번.', tuple(q13_dict.keys()))
 
 # 16. 13번에서 선언한 딕셔너리(dict)에서 value 항목만 출력해보세요.
 
+print('16번.', q13_dict.values())
+print('16번.', list(q13_dict.values()))
+print('16번.', tuple(q13_dict.values()))
 
 
 
