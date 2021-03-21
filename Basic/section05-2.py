@@ -108,21 +108,33 @@ numbers = [14, 3, 4, 7, 10, 24, 17, 2, 33, 15, 34, 36, 38]
 
 # break
 for num in numbers:
-    if num == 33:
-        print("found : 33!")
-        break
+    if num == 33: # 33 이면 
+        print("found : 33!") # 출력 후
+        break # for문 종료
     else:
-        print("not found : ", num)
+        print("not found : ", num) # 아닐 경우 그냥 출력
 
 # continue
 lt = ["1", 2, 5, True, 4.3, complex(4)]
 
 for v in lt:
-    if type(v) is float:
-        continue
+    if type(v) is float: # 실수면
+        continue # 다음 순회로 넘어감
 
-    print("type:", type(v))
+    print("type:", type(v)) 
     print("multiply by 2:", v * 3)
+    """
+    type: <class 'str'>
+    multiply by 2: 111
+    type: <class 'int'>
+    multiply by 2: 6
+    type: <class 'int'>
+    multiply by 2: 15
+    type: <class 'bool'>
+    multiply by 2: 3
+    type: <class 'complex'>
+    multiply by 2: (12+0j)
+    """
 
 # for-else 실습
 numbers = [14, 3, 4, 7, 10, 24, 17, 2, 33, 15, 34, 36, 38]
@@ -179,7 +191,7 @@ for i in range(1, 11):
 
 # 자료 구조 변환 예제
 name = 'Niceman'
-print('reversed : ', reversed(name))
-print('list : ', list(reversed(name)))
-print('list : ', tuple(reversed(name)))
-print('list : ', set(reversed(name)))  # 순서X
+print('reversed : ', reversed(name)) # reversed :  <reversed object at 0x000002711B0604C0>
+print('list : ', list(reversed(name))) # list :  ['n', 'a', 'm', 'e', 'c', 'i', 'N']
+print('tuple : ', tuple(reversed(name))) # tuple :  ('n', 'a', 'm', 'e', 'c', 'i', 'N')
+print('set : ', set(reversed(name)))  # 순서X / set :  {'i', 'c', 'N', 'a', 'm', 'e', 'n'} / 작동시마다 랜덤으로 작동
