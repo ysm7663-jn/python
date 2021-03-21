@@ -11,13 +11,13 @@ while v1 < 11:
     print("v1 is :", v1)
     v1 += 1
 
-for v2 in range(10):
+for v2 in range(10): # 0 ~ 9
     print("v2 is :", v2)
 
 for v3 in range(1, 11):
-    print("v3 is :", v3)
+    print("v3 is :", v3) # 1 ~ 10
 
-for v4 in range(1, 11, 2):
+for v4 in range(1, 11, 2): # 1, 3, 5, 7, 9
     print("v4 is :", v4)
 
 # 1 ~ 100합
@@ -29,53 +29,80 @@ while cnt1 <= 100:
     sum1 += cnt1
     cnt1 += 1
 
-print('1 ~ 100 합 : ', sum1)
-print('1 ~ 100 합 : ', sum(range(1, 101)))  # sum(리스트)
-print('1 ~ 100 안에 3의 배수의 합 : ', sum(range(1, 101, 3)))
+print('1 ~ 100 합 : ', sum1) # 5050
+print('1 ~ 100 합 : ', sum(range(1, 101)))  # sum(리스트) / 5050
+print('1 ~ 100 안에 3의 배수의 합 : ', sum(range(1, 101, 3))) # 1717
 
 # 시퀀스(순서가 있는) 자료형 반복
 # 문자열, 리스트, 튜플, 집합, 사전
 # iterable 리턴 함수 : range, reversed, enumerate, filter, map, zip
 
-# 예제1
+# 예제1 / 리스트
 names = ["Kim", "Park", "Cho", "Lee", "Choi", "Yoo"]
 
 for name in names:
-    print("You are", name)
+    print("You are", name) 
 
-# 예제2
+# 예제2 / 리스트
 lotto_numbers = [11, 19, 21, 28, 36, 37]
 
 for number in lotto_numbers:
     print("Your number", number)
 
-# 예제3
+# 예제3 / 문자열
 word = 'dreams'
 
-for s in word:
+for s in word :
     print('word : ', s)
 
-# 예제4
+# 예제4 / 딕셔너리
 my_info = {
     "name": "Kim",
     "age": 33,
     "city": "Seoul"
 }
-
+# 기본 값은 키
 for key in my_info:
-    print(key, ":", my_info[key])
-
+    print('key : ', key)
+"""
+key :  name
+key :  age
+key :  city
+"""
+# 키
+for keys in my_info.keys():
+    print('keys : ', keys)
+"""
+keys :  name
+keys :  age
+keys :  city
+"""
+# 값
 for val in my_info.values():
-    print(val)
+    print('value : ', val)
+"""
+value :  Kim
+value :  33
+value :  Seoul
+"""
+# 키와 값
+for k, v in my_info.items():
+    print('items : ', k, v)
+
+"""
+items :  name Kim
+items :  age 33
+items :  city Seoul
+"""
 
 # 예제5
 name = 'KennRY'
 
 for n in name:
-    if n.isupper():
-        print(n)
+    if n.isupper(): # 대문자면 
+        print(n)  # 그대로 출력
     else:
-        print(n.upper())
+        print(n.upper())  # 소문자면 대문자로 바꿔서 출력
 
 numbers = [14, 3, 4, 7, 10, 24, 17, 2, 33, 15, 34, 36, 38]
 
