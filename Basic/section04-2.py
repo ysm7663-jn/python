@@ -108,7 +108,7 @@ print(str(complex(12)))
 # 참고 : https://www.w3schools.com/python/python_ref_string.asp
 print("Capitalize: ", str_o1.capitalize())  # 첫 글자를 대문자로 바꿈
 print("endswith?: ", str_o2.endswith("s"))  # 맨 끝 글자가 "s" 냐? True, False 반환
-print("join str: ", str_o1.join(["I'm ", "!"]))
+print("join str: ", str_o1.join(["I'm ", "!"])) # join str:  I'm Niceman!
 print("replace1: ", str_o1.replace('Nice', 'Good')) # 앞에 글자를 뒤에 글자로 대체
 print("replace2: ", str_o3.replace("is", "was", 3))
 print("split: ", str_o4.split(' '))  # Type 확인 / 띄어쓰기 마다 구분 지음
