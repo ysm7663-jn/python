@@ -71,10 +71,13 @@ print('a - ', a) # [2, 3, 4, 7, 5, 6]
 print('a - ', a.pop())  # 6 [2, 3, 4, 7, 5]
 # 스택(LIFO) pop() : 맨 마지막 원소를 출력하고 제거
 print('a - ', a.pop())  # 5 [2, 3, 4, 7]
+a.append(5)
 print('a - ', a)    # [2, 3, 4, 7]
 print('a - ', a.count(4))   # 4의 개수 : 1
 ex = [8, 9]
 a.extend(ex)    #.extend() : 연장(원소만 추가가 된다.)
+print('a - ', a)    # [2, 3, 4, 7, 8, 9]
+a.append(ex)
 print('a - ', a)    # [2, 3, 4, 7, 8, 9]
 # a.append(ex)  # [2, 3, 4, 7, [8, 9]] : 리스트 자체가 추가가 된다
 
