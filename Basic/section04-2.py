@@ -113,17 +113,28 @@ print("join str: ", str_o1.join(["I'm ", "!"])) # join str:  I'm Niceman!
 print("replace1: ", str_o1.replace('Nice', 'Good')) # 앞에 글자를 뒤에 글자로 대체
 print("replace2: ", str_o3.replace("is", "was", 3)) # replace2:  thwas was string example....wow!!! thwas is really string
 print("split: ", str_o4.split(' '))  # Type 확인 / 띄어쓰기 마다 구분 지음
-print("sorted: ", sorted(str_o1))  # reverse=True   / 
+print("sorted: ", sorted(str_o2))  # reverse=True   / 
 print("reversed1: ", reversed(str_o2)) #list 형 변환  
 print("reversed2: ", list(reversed(str_o2)))    # 리스트에 들어있는 단어들을 역순으로 출력
 
-# immutable 설명
+# immutable(불변의) 설명
 im_str = "Good Boy!"
 
 print(dir(im_str))  # __iter__ 확인
 # 출력
 for i in im_str:
     print(i)
+"""
+G
+o
+o
+d
+
+B
+o
+y
+!
+"""
 
 # im_str[0] = "T"  # 수정 불가(immutable)
 
