@@ -184,6 +184,7 @@ print(mul_func(6)) # 60
 # 익명함수 사용시 사용
 lambda_mul_func = lambda num: num * 10
 
+
 print('>>>', lambda_mul_func(5)) # >>> 50
 
 
