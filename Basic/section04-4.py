@@ -53,7 +53,7 @@ print('b - ', b.values()) # b -  dict_values(['Hello python!', 'Hello Coding'])
 print('c - ', c.values()) # c -  dict_values([[1, 2, 3, 4]])
 
 print('a - ', list(a.values())) # a -  ['Kim', '01012345678', '870124', 'seoul', (1, 2, 3)]
-print('a - ', tuple(a.values())) # a -  ['Kim', '01012345678', '870124', 'seoul', (1, 2, 3)]
+print('a - ', tuple(a.values())) # a -  ('Kim', '01012345678', '870124', 'seoul', (1, 2, 3))
 print('b - ', list(b.values())) # b -  ['Hello python!', 'Hello Coding']
 print('c - ', list(c.values())) # c -  [[1, 2, 3, 4]]
 
@@ -63,7 +63,7 @@ print('b - ', b.items()) # b -  dict_items([(0, 'Hello python!'), (1, 'Hello Cod
 print('c - ', c.items()) # c -  dict_items([('arr', [1, 2, 3, 4])])
 
 print('a - ', list(a.items())) # [('name', 'Kim'), ('phone', '01012345678'), ('birth', '870124'), ('address', 'seoul'), ('rank', (1, 2, 3))]
-print('a - ', tuple(a.items()))
+print('a - ', tuple(a.items())) # (('name', 'Kim'), ('phone', '01012345678'), ('birth', '870124'), ('address', 'seoul'), ('rank', (1, 2, 3)))
 print('b - ', list(b.items())) # [(0, 'Hello python!'), (1, 'Hello Coding')]
 print('c - ', list(c.items())) # [('arr', [1, 2, 3, 4])]
 
