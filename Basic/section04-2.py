@@ -152,6 +152,7 @@ print(str_sl[:])    # 처음부터 끝까지
 print(str_sl[1:4:2])    # 1번부터 3번까지중 2개씩 출력
 print(str_sl[-3:6]) # -3:b ~ 6:o // ie
 print(str_sl[1:-2]) # 1:i ~ -2:o // iceb
+print(str_sl[1:-1]) # 1:i ~ -1:y // icebo
 print(str_sl[::-1]) # 처음부터 끝까지, -1:역순으로
 print(str_sl[::2])  # N, c, b, y
 
