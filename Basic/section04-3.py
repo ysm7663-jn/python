@@ -108,6 +108,7 @@ print('d - ', d[-1])    # 'Plate'
 print('e - ', e[-1][1]) # 'Cap'
 # print('e - ', e[-1][1][4])
 print('e - ', list(e[-1][1]))   # ['C', 'a', 'p']
+print('e - ', tuple(e[-1][1]))   # ('C', 'a', 'p')
 
 # 슬라이싱
 print('#=====#')
