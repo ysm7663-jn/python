@@ -166,7 +166,7 @@ print(complex('3'))  # 문자 -> 복소수
 print(complex(False))  # Bool -> 복소수
 
 # 수치 연산 함수
-print(abs(-7))  # 절대값
+print(abs(-7))  # 절대값 / 7
 x, y = divmod(100, 8)   #x = 몫, y = 나머지
 print(x, y)
 print(pow(5, 3))    # pow(x, y) >> x의 y승
