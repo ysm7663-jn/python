@@ -67,9 +67,9 @@ i2 = -14
 big_int = 77777777777777777777777777777777777777
 
 # 정수 출력
-print(i)
-print(i2)
-print(big_int)
+print(i) # 77
+print(i2) # -14
+print(big_int) # 77777777777777777777777777777777777777
 
 # 실수 선언
 f = 0.9999
@@ -78,10 +78,10 @@ f3 = -3.9
 f4 = 3 / 9
 
 # 실수 출력
-print(f)
-print(f2)
-print(f3)
-print(f4)
+print(f) # 0.9999
+print(f2) # 3.141592
+print(f3) # -3.9
+print(f4) # 3 / 9
 
 # 연산 실습
 i1 = 39
@@ -93,40 +93,40 @@ f2 = 3.939
 
 # +
 print("##### + #####")
-print("i1 + i2 : ", i1 + i2) 
-print("f1 + f2 : ", f1 + f2) 
-print("big_int1 + big_int2 : ", big_int1 + big_int2) 
-print("i1 + f1 : ", i1 + f1)  # 실수와 정수끼리
+print("i1 + i2 : ", i1 + i2) # i1 + i2 :  978
+print("f1 + f2 : ", f1 + f2) # f1 + f2 :  5.173
+print("big_int1 + big_int2 : ", big_int1 + big_int2) # big_int1 + big_int2 :  1123456789123456789012345678901234567889
+print("i1 + f1 : ", i1 + f1)  # 실수와 정수끼리 >> 실수 처리 / i1 + f1 :  40.234
 
 # -
 print("##### - #####")
-print("i1 - i2: ", i1 - i2) 
-print("f1 - f2: ", f1 - f2)
-print("big_int1 - big_int2: ", big_int1 - big_int2)
-print("i1 - f1: ", i1 - f1)
+print("i1 - i2: ", i1 - i2) # i1 - i2:  -900
+print("f1 - f2: ", f1 - f2) # f1 - f2:  -2.705
+print("big_int1 - big_int2: ", big_int1 - big_int2) # big_int1 - big_int2:  -876543210876543210987654321098765432109
+print("i1 - f1: ", i1 - f1) # i1 - f1:  37.766
 
 # *
 print("##### * #####")
-print("i1 * i2: ", i1 * i2)
-print("f1 * f2: ", f1 * f2)
-print("big_int1 * big_int2: ", big_int1 * big_int2)
-print("i1 * f1: ", i1 * f1)
+print("i1 * i2: ", i1 * i2) # i1 * i2:  36621
+print("f1 * f2: ", f1 * f2) # f1 * f2:  4.860726
+print("big_int1 * big_int2: ", big_int1 * big_int2) #big_int1 * big_int2:  123456789123456789012345678901234567889876543210876543210987654321098765
+print("i1 * f1: ", i1 * f1) # 432110
 
 # /
 print("##### / #####")
-print("i2 / i1: ", i2 / i1)
-print("f2 / f1: ", f2 / f1)
-print("big_int2 / big_int1: ", big_int2 / big_int1)
-print("i1 / f1: ", i1 / f1)
-print("f1 / i1: ", f1 / i1)
+print("i2 / i1: ", i2 / i1) # i2 / i1:  24.076923076923077
+print("f2 / f1: ", f2 / f1) # f2 / f1:  3.1920583468395463
+print("big_int2 / big_int1: ", big_int2 / big_int1) # big_int2 / big_int1:  8.10000006561
+print("i1 / f1: ", i1 / f1) # i1 / f1:  31.60453808752026
+print("f1 / i1: ", f1 / i1) # f1 / i1:  0.03164102564102564
 
 # //
 print("##### // #####")
-print("i2 // i1: ", i2 // i1) 
-print("f2 // f1: ", f2 // f1)
-print("big_int2 // big_int1: ", big_int2 // big_int1)
-print("i1 // f1: ", i1 // f1)
-print("f1 // i1: ", f1 // i1)
+print("i2 // i1: ", i2 // i1) # i2 // i1:  24
+print("f2 // f1: ", f2 // f1) # f2 // f1:  3.0
+print("big_int2 // big_int1: ", big_int2 // big_int1) # big_int2 // big_int1:  8
+print("i1 // f1: ", i1 // f1) # i1 // f1:  31.0
+print("f1 // i1: ", f1 // i1) # f1 // i1:  0.0
 
 # %
 print("##### % #####")
