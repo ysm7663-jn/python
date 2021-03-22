@@ -11,6 +11,7 @@ str4 = '''Thank you!'''
 
 # 문자열 출력
 print(type(str1))
+print(str1)
 print(type(str2))
 print(type(str3))
 print(type(str4))
@@ -87,22 +88,22 @@ str_o2 = "Orange"
 str_o3 = "this is string example....wow!!! this is really string"
 str_o4 = "Kim Lee Park Joo"
 
-print(3 * str_o1)
-print(str_o1 + str_o2)
+print(3 * str_o1) # NicemanNicemanNiceman
+print(str_o1 + str_o2) # NicemanOrange
 print(dir(str_o1))
-print('x' in str_o1)
-print('i' in str_o1)
-print('e' not in str_o2)
-print('O' not in str_o2)
+print('x' in str_o1) # False
+print('i' in str_o1) # True
+print('e' not in str_o2) # False
+print('O' not in str_o2) # False
 
 # 문자열 형 변환
 
 # print(3 + str_o1) 은 불가, *는 반복으로 받아들인다
-print(str(77) + 'a')  # type 확인, 문자형
-print(str(77))  # type 확인, 문자형
-print(str(10.4)) # 문자형
-print(str(True))
-print(str(complex(12)))
+print(str(77) + 'a')  # type 확인, 문자형 / 77a
+print(str(77))  # type 확인, 문자형 / 77
+print(str(10.4)) # 문자형 / 10.4
+print(str(True)) # True
+print(str(complex(12))) # (12+0j)
 
 # 문자열 함수
 # 참고 : https://www.w3schools.com/python/python_ref_string.asp
@@ -110,7 +111,7 @@ print("Capitalize: ", str_o1.capitalize())  # 첫 글자를 대문자로 바꿈
 print("endswith?: ", str_o2.endswith("s"))  # 맨 끝 글자가 "s" 냐? True, False 반환
 print("join str: ", str_o1.join(["I'm ", "!"])) # join str:  I'm Niceman!
 print("replace1: ", str_o1.replace('Nice', 'Good')) # 앞에 글자를 뒤에 글자로 대체
-print("replace2: ", str_o3.replace("is", "was", 3))
+print("replace2: ", str_o3.replace("is", "was", 3)) # replace2:  thwas was string example....wow!!! thwas is really string
 print("split: ", str_o4.split(' '))  # Type 확인 / 띄어쓰기 마다 구분 지음
 print("sorted: ", sorted(str_o1))  # reverse=True   / 
 print("reversed1: ", reversed(str_o2)) #list 형 변환  
