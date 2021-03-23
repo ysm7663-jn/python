@@ -6,16 +6,20 @@
 # .. : 부모 디렉토리
 # .  : 현재 디렉토리
 
+# 패키지 : 모듈들을 디렉토리를 구조적으로 관리(폴더)
+# 모듈   : 
+
 # 사용1(클래스)
 from pkg.fibonacci import Fibonacci
 
-Fibonacci.fib(100)
+Fibonacci.fib(300) # 0 1 1 2 3 5 8 13 21 34 55 89 144 233
 
-print("ex1 : ", Fibonacci.fib2(200))
-print("ex1 : ", Fibonacci().title)
+print("ex1 : ", Fibonacci.fib2(400)) # ex1 :  [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]
+print("ex1 : ", Fibonacci().title) # ex1 :  fibonacci
 
 
 # 사용2(클래스)
+# 메모리 많이 차지, 권장x
 from pkg.fibonacci import *
 
 Fibonacci.fib(300)
