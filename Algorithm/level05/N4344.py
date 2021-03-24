@@ -9,3 +9,5 @@ for i in range (N) :
             cnt += 1
         rate = cnt / arr[0] * 100
     print(f'{rate:.3f}%')
+
+# 리스트의 범위 지정을 활용
