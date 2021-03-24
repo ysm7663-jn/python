@@ -58,10 +58,33 @@ print("----------------------")
 
 with open('./resource/review.txt', 'r') as f:
     for c in f:
-        # print(c)
+        #print(c)
+        """
+        The film, projected in the form of animation,
+
+        imparts the lesson of how wars can be eluded through reasoning and peaceful dialogues,
+
+        which eventually paves the path for gaining a fresh perspective on an age-old problem.
+
+        The story also happens to centre around two parallel characters, Shundi King and Hundi King,
+
+        who are twins, but they constantly fight over unresolved issues planted in their minds
+
+        by external forces from within their very own units.
+
+        """
+
         # strip() : 양쪽 공백을 제거해줌, 줄바꿈도 제거
         print(c.strip())
         
+        """
+        The film, projected in the form of animation,
+        imparts the lesson of how wars can be eluded through reasoning and peaceful dialogues,
+        which eventually paves the path for gaining a fresh perspective on an age-old problem.
+        The story also happens to centre around two parallel characters, Shundi King and Hundi King,
+        who are twins, but they constantly fight over unresolved issues planted in their minds
+        by external forces from within their very own units.
+        """
 
 print()
 
@@ -71,8 +94,8 @@ print("----------------------")
 with open('./resource/review.txt', 'r') as f:
     contents = f.read()
     print('>', contents)
-    contents = f.read()  # 내용 없음
-    print('>', contents)  # 내용 없음
+    contents = f.read()  # 내용 없음 / 한 번 읽은 후에 커서가 맨 끝에 있기 때문에 그 뒤로 내용이 없음
+    print('>', contents)  # 내용 없음 / > 만 출력됨
     f.seek(0, 0)
     contents = f.read()
     print('>', contents)
@@ -88,14 +111,14 @@ print("----------------------")
 with open('./resource/review.txt', 'r') as f:
     line = f.readline()
     while line:
-        print(line, end='###')
+        print(line, end=' #### ') # 커서는 항상 출력 뒤에 / 한 줄씩이므로 다음줄 첫 번째에 위치
         """
         The film, projected in the form of animation,
-        ###imparts the lesson of how wars can be eluded through reasoning and peaceful dialogues,
-        ###which eventually paves the path for gaining a fresh perspective on an age-old problem.
-        ###The story also happens to centre around two parallel characters, Shundi King and Hundi King,
-        ###who are twins, but they constantly fight over unresolved issues planted in their minds
-        ###by external forces from within their very own units.###
+        #### imparts the lesson of how wars can be eluded through reasoning and peaceful dialogues,
+        #### which eventually paves the path for gaining a fresh perspective on an age-old problem.
+        #### The story also happens to centre around two parallel characters, Shundi King and Hundi King,
+        #### who are twins, but they constantly fight over unresolved issues planted in their minds
+        #### by external forces from within their very own units. ####
         """
         line = f.readline()
 
@@ -110,6 +133,7 @@ print("----------------------")
 # 예제6
 with open('./resource/review.txt', 'r') as f:
     contents = f.readlines()
+    # readlines() : 이스케이프 문자를 포함하여 리스트 형태로 출력
     print(contents)
     """
     리스트 형태로 출력
@@ -117,15 +141,15 @@ with open('./resource/review.txt', 'r') as f:
     """
     print()
     for c in contents:
-        print(c, end='*****')
+        print(c, end=' ***** ')
     
     """
     The film, projected in the form of animation,
-    *****imparts the lesson of how wars can be eluded through reasoning and peaceful dialogues,
-    *****which eventually paves the path for gaining a fresh perspective on an age-old problem.
-    *****The story also happens to centre around two parallel characters, Shundi King and Hundi King,
-    *****who are twins, but they constantly fight over unresolved issues planted in their minds
-    *****by external forces from within their very own units.*****
+    ***** imparts the lesson of how wars can be eluded through reasoning and peaceful dialogues,
+    ***** which eventually paves the path for gaining a fresh perspective on an age-old problem.
+    ***** The story also happens to centre around two parallel characters, Shundi King and Hundi King,
+    ***** who are twins, but they constantly fight over unresolved issues planted in their minds
+    ***** by external forces from within their very own units. *****
     """
 
 
@@ -133,41 +157,46 @@ print()
 print()
 
 # 예제7
-with open('./resource/score.txt', 'r') as f:
-    score = []
+score = []
+with open('./resource/score.txt', 'r') as f :
     for line in f:
         score.append(int(line))
-        # txt에 저장돼있는건 무조건 문자로 저장돼있기 때문에 int로 형변환
-    print(score)
-    # [95, 78, 92, 89, 100, 66]
-    print('Average : {:6.3f}'.format(sum(score) / len(score)))
-    # Average : 86.667
+    print(score) # [95, 78, 92, 89, 100, 66]
+print('Average : {:4.3}'.format(sum(score)/len(score))) # Average : 86.7
+
+print() 
 
 # 파일 쓰기
 
 # 예제1
 with open('./resource/test.txt', 'w') as f:
-    f.write('niceman!')
+    f.write('niceman! ')
+    f.write('goodBoy! ')
 
 # 예제2
+# a(append) : 추가
 with open('./resource/test.txt', 'a') as f:
-    f.write('niceman!!')
+    f.write('niceman!! ')
+    f.write('goodBoy!! ')
+    
 
 # 예제3
 from random import randint
-
+# 랜덤 수 생성
 with open('./resource/score2.txt', 'w') as f:
     for cnt in range(6):
-        f.write(str(randint(50, 100)))
+        f.write(str(randint(50, 100))) # 50 ~ 99
         f.write('\n')
 
 # 예제4
 # writelines : 리스트 -> 파일로 저장
 with open('./resource/test2.txt', 'w') as f:
-    list = ['Kim\n', 'Park\n', 'Lee\n']
+    list = ['Kim\n', 'Park\n', 'Lee\n', 'Yun\n']
     f.writelines(list)
 
 # 예제5
+# 파일 로그 지정할 때 작성할 때 가끔 사용함
 with open('./resource/test3.txt', 'w') as f:
-    print('Test Contents!', file=f)
+    print('Test Contents!', file=f) # 지정된 alias로 지정해주고, 콘솔 대신 지정된 파일에 저장
+    print('Test Contents!!', file=f) 
     print('Test Contents!!', file=f)
