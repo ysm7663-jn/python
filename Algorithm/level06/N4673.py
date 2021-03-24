@@ -14,7 +14,7 @@ arr = set(range(1, 10001))  # 중복 값을 제거하고 1 ~ 10000까지 수를 
 num = set()
 
 for i in range(1, 10001) :
-    for j in str(i) : # i의 값을 나누기 위해 str로 형변환 / i = ['8', '5', '0']
+    for j in str(i) : # i의 값을 나누기 위해 str로 형변환 / i = '8', '5', '0'
         i += int(j) # i = i + int(j) >> 850 + 8 >> 858 + 5 >> 863 + 0 >> 863
     num.add(i) # 863
 
