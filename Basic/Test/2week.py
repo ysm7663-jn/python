@@ -1,4 +1,4 @@
-
+"""
 # 1번 문제
 
 import csv
@@ -6,10 +6,19 @@ import csv
 with open('./resource/a.csv', 'r') as f :
     reader = csv.reader(f)
 
+
+    
+
+    arr = list(map(int, arr))
+    print(arr)
+    print(type(arr))
+
+    
+
 """
 10,60,20,33,55,25,64,83,523,54,87,84,56,84
 """
-
+"""
 # 2번 문제
 class Median:
     
@@ -100,16 +109,19 @@ Michael is smart enough to speak.
 Michael moves like a jagger.
 ---------------------------------
 """
-
+"""
 # 4번   
 class Foo:
-    
-    
-    
+
+    def __init__(self) :
+        pass
+
+    def bar(self) :
+        print(str(A))
  
 print(Foo.bar)       # A 출력
 
-print(Foo().bar)     # B 출력
-print(Foo.Bar.bar)   # C 출력
-print(Foo.Bar().bar) # D 출력
-
+#print(Foo().bar)     # B 출력
+#print(Foo.Bar.bar)   # C 출력
+#print(Foo.Bar().bar) # D 출력
+"""
