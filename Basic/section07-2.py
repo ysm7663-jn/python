@@ -13,8 +13,8 @@ class Car:
         self.color = color
 
     def show(self):
-        # print('Car Class "Show" Method!')
-        return 'Car Class "Show" Method!'
+        print('%s Car Class "Show" Method!' % self.type)
+        # return 'Car Class "Show" Method!'
 
 
 class BmwCar(Car): # (부모 클래스) : 부모의 속성과 메소드를 모두 사용 가능
@@ -36,14 +36,15 @@ class BenzCar(Car):
         self.car_name = car_name
 
     def show(self):
-        print(super().show()) # 부모 클래스에 존재하는 메소드를 그대로 사용
-        return 'Car Info : %s %s %s' % (self.car_name, self.color,self.type)
+        # print(super().show()) # 부모 클래스에 존재하는 메소드를 그대로 사용
+        return 'Car Info223 : %s %s %s' % (self.car_name, self.color,self.type)
 
     def show_model(self) -> None:
-        return 'Your Car Name : %s' % self.car_name
+        return 'Your Car Name22 : %s' % self.car_name
 
 
 # 일반 사용
+
 model1 = BmwCar('520d', 'sedan', 'red')
 
 print(model1.color)  # Super / red
@@ -58,9 +59,11 @@ print(model1.__dict__) # {'type': 'sedan', 'color': 'red', 'car_name': '520d'}
 model2 = BenzCar("220d", 'suv', 'black')
 print(model2.show()) # Car Info : 220d black suv
 
+print('----')
+
 # Parent Method Call
 model3 = BenzCar("350s", 'sedan', 'silver')
-print(model3.show()) # Car Class "Show" Method! Car Info : 350s silver sedan
+print(model3.show()) # Car Info : 350s silver sedan
 
 # Inheritance Info (상속 관계 정보를 리스트 형태로 출력)
 # 모든 클래스는 object를 상속 받는다.
