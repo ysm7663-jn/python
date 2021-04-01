@@ -61,13 +61,14 @@ print(queue.is_empty())
 """
 
 # 2번 
-"""
+
 class Stack:
     def __init__(self):
         self.list = list()
  
     def push(self, data):
         self.list.append(data)
+        
  
     def pop(self):
         return self.list.pop()
@@ -77,13 +78,35 @@ class Calculator:
         self.stack = Stack()
  
     def calculate(self, string):
-        pass
+
+        for i in string :
+            if i == ' ' :
+                pass
+            elif i == '+' :
+                val2 = self.stack.pop()
+                val1 = self.stack.pop()
+                self.stack.push(val1 + val2)
+            elif i == '-' :
+                val2 = self.stack.pop()
+                val1 = self.stack.pop()
+                self.stack.push(val1 - val2)
+            elif i == '*' :
+                val2 = self.stack.pop()
+                val1 = self.stack.pop()
+                self.stack.push(val1 * val2)
+            elif i == '/' :
+                val2 = self.stack.pop()
+                val1 = self.stack.pop()
+                self.stack.push(int(val1 / val2))
+            else :
+                self.stack.push(int(i))
+        return self.stack.pop()
  
 # Test code
 calc = Calculator()
 print(calc.calculate('4 6 * 2 / 2 +'))
 print(calc.calculate('2 5 + 3 * 6 - 5 *'))
-"""
+
 
 # 3번
 """
