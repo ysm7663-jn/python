@@ -10,7 +10,7 @@ is_empty(): Queue가 비어있으면 True, 비어있지 않으면 False를 출�
 put(): Queue의 rear에 새로운 데이터를 입력한다.
 get(): Queue의 front에서 데이터를 출력한다. 출력한 데이터는 Queue에서 삭제한다. 더이상 출력할 데이터가 없는 경우 None을 출력한다.
 peek(): Queue의 front에서 데이터를 출력한다. 출력한 데이터는 Queue에 그대로 유지한다. 더이상 출력할 데이터가 없는 경우 None을 출력한다
-
+"""
 class Node:
     def __init__(self, data, prev=None, next=None):
         self.data = data
@@ -26,10 +26,24 @@ class LinkedQueue:
         pass
  
     def put(self, data):
-        pass
- 
+        if self.front == "":
+            self.head = Node(data)
+        else :
+            node = self.head
+            while node.next :
+                node = node.next
+            node.next = Node(data)
+
     def get(self):
-        pass
+        if self.front == "":
+            print('None')
+            return
+        else :
+            print(self.front)
+            temp = self.head
+            self.head = self.head.next
+            del temp
+            return
  
     def peek(self):
         pass
@@ -58,8 +72,8 @@ for _ in range(21):
     print(queue.get(), end=' ')
 print()
 print(queue.is_empty())
-"""
 
+"""
 # 2번 
 
 class Stack:
@@ -104,14 +118,14 @@ class Calculator:
 
             else :
                 self.stack.push(int(i))
-                
+
         return self.stack.pop()
  
 # Test code
 calc = Calculator()
 print(calc.calculate('4 6 * 2 / 2 +'))
 print(calc.calculate('2 5 + 3 * 6 - 5 *'))
-
+"""
 
 # 3번
 """
