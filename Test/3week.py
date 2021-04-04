@@ -11,6 +11,7 @@ put(): Queue의 rear에 새로운 데이터를 입력한다.
 get(): Queue의 front에서 데이터를 출력한다. 출력한 데이터는 Queue에서 삭제한다. 더이상 출력할 데이터가 없는 경우 None을 출력한다.
 peek(): Queue의 front에서 데이터를 출력한다. 출력한 데이터는 Queue에 그대로 유지한다. 더이상 출력할 데이터가 없는 경우 None을 출력한다
 """
+
 class Node:
     def __init__(self, data, prev=None, next=None):
         self.data = data
@@ -23,30 +24,20 @@ class LinkedQueue:
         self.rear = None
  
     def is_empty(self):
-        pass
+        if self.front == self.rear :
+            return True
+        else :
+            return False
  
     def put(self, data):
-        if self.front == "":
-            self.head = Node(data)
-        else :
-            node = self.head
-            while node.next :
-                node = node.next
-            node.next = Node(data)
+        
 
     def get(self):
-        if self.front == "":
-            print('None')
-            return
-        else :
-            print(self.front)
-            temp = self.head
-            self.head = self.head.next
-            del temp
-            return
+        print(self.front.data)
+        del front.data
  
     def peek(self):
-        pass
+        return self.front.data
  
 # Test code
 queue = LinkedQueue()
@@ -163,7 +154,8 @@ tree.preorder()
 HashTable 클래스는 문자열을 key로 입력받는 해쉬 테이블 자료구조를 구현한 것이다. HashTable 클래스는 단순한 해쉬 함수로 인해, 해쉬 충돌이 빈번히 발생한다. 이 단점을 개선하기 위해, Chaining 기법으로 ChainedHashTable을 구현하고자 한다.
 
 HashTable을 상속하여 해쉬 충돌이 발생해도 정상적으로 동작하는 ChainedHashTable을 완성하시오.
-
+"""
+"""
 def hash_func(key):
     return ord(key[0]) % 10
  
@@ -184,8 +176,8 @@ class Node:
         self.next = None
  
 class ChainedHashTable(HashTable):
-    pass
- 
+    
+    
 # Test code
  
 ht = ChainedHashTable()
