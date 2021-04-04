@@ -1,24 +1,15 @@
-"""
+
 # 1번 문제
 
 import csv
-
-with open('./resource/a.csv', 'r') as f :
+ 
+sum = 0
+with open('./resource/a.csv', 'r') as f:
     reader = csv.reader(f)
-
-
-    
-
-    arr = list(map(int, arr))
-    print(arr)
-    print(type(arr))
-
-    
-
-"""
-10,60,20,33,55,25,64,83,523,54,87,84,56,84
-"""
-"""
+    for line in reader:
+        for elem in line:
+            sum += int(elem)
+print(sum)
 # 2번 문제
 class Median:
     
@@ -72,25 +63,22 @@ class Animal:
  
  
 class Dog(Animal):
-    def __init__(self, name):
-        super().__init__(name)
-
-    def speak(self) :
-        print(self.name + ' cannot speak.')
-
-    def move(self) :
-        print('%s moves like a jagger' % self.name)
+    def move(self):
+        print(self.name + ' moves like a jagger.')
+ 
  
 class Retriever(Dog):
-    def __init__(self, name):
-        super().__init__(name)
-
-    def speak(self) :
+    def speak(self):
         print(self.name + ' is smart enough to speak.')
-
-    def move(self) :
-        print('%s moves like a jagger' % self.name)
-    
+ 
+ 
+dog = Dog('Nancy')
+dog.speak()
+dog.move()
+ 
+super_dog = Retriever('Michael')
+super_dog.speak()
+super_dog.move()
  
  
 dog = Dog('Nancy')
@@ -101,27 +89,20 @@ dog.move()
 super_dog = Retriever('Michael')
 super_dog.speak()
 super_dog.move()
-"""
----------- 출력 -----------------
-Nancy cannot speak.
-Nancy moves like a jagger.
-Michael is smart enough to speak.
-Michael moves like a jagger.
----------------------------------
-"""
-"""
+
+
 # 4번   
 class Foo:
-
-    def __init__(self) :
-        pass
-
-    def bar(self) :
-        print(str(A))
+    bar = 'A'
+    def __init__(self):
+        self.bar = 'B'
+ 
+    class Bar:
+        bar = 'C'
+        def __init__(self):
+            self.bar = 'D'
  
 print(Foo.bar)       # A 출력
-
-#print(Foo().bar)     # B 출력
-#print(Foo.Bar.bar)   # C 출력
-#print(Foo.Bar().bar) # D 출력
-"""
+print(Foo().bar)     # B 출력
+print(Foo.Bar.bar)   # C 출력
+print(Foo.Bar().bar) # D 출력
