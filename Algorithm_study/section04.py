@@ -319,5 +319,7 @@ print('#####')
 double_linked_list.insert_before(1.5, 2)
 double_linked_list.desc()
 print('$$$$$$')
+
+# 연습 문제2. 노드 데이터가 특정 숫자인 노드 뒤에 데이터를 추가하는 함수 만들기
 double_linked_list.insert_after(3.5, 3)
 double_linked_list.desc()
