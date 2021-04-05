@@ -66,7 +66,7 @@ print(get_data('Andy')) # 01011112222
     - 저장, 삭제, 읽기가 빈번한 경우
     - 캐쉬 구현시 (중복 확인이 쉽기 때문)
 """
-"""
+
 # 연습 1: 리스트 변수를 활용해서 해쉬 테이블 구현
 hash_table = list([i for i in range(8)])
 
@@ -88,7 +88,7 @@ save_data('ABC', '0123456789')
 save_data('def', '9876543210')
 print(read_data('ABC'))
 print(read_data('def'))
-"""
+
 """ 
 3) 충돌(Collision) 해결 알고리즘
 3-1) Chaining 기법
@@ -97,7 +97,7 @@ print(read_data('def'))
 """
 
 # 3-1 연습
-hash_table = list([i for i in range(8)])
+hash_table = list([0 for i in range(8)])
 
 def get_key(data) :
     return hash(data)
@@ -113,14 +113,15 @@ def save_data(data, value) :
             if hash_table[hash_address][index][0] == index_key :
                 hash_table[hash_address][index][1] = value
                 return
-        hash_table[hash_address].append()                
+        hash_table[hash_address].append([index_key, value])                
     else :
         hash_table[hash_address] = [[index_key, value]]
 
 def read_data(data) :
     index_key = get_key(data)
-    hash_address = hash_function(index_key(data))
-
+    print(index_key)
+    hash_address = hash_function(index_key)
+    print(hash_address)
     if hash_table[hash_address] != 0:
         for index in range(len(hash_table[hash_address])):
             if hash_table[hash_address][index][0] == index_key :
@@ -130,14 +131,141 @@ def read_data(data) :
         return None
 
 
-print(hash('Data') % 8)
+print(hash('David') % 8)
 print(hash('Dd') % 8)
-print(hash('Dave') % 8)
 
 print('----------')
-save_data('Data', '1201023010')
+save_data('Dd', '1201023010')
 save_data('David', '3301023010')
-save_data('Dd', '78545210')
-print(hash_talble)
-print(read_data('Data'))
+
+print(hash_table)
+print(read_data('Dd'))
 print(read_data('David'))
+
+print('---------------------')
+""" 
+3) 충돌(Collision) 해결 알고리즘
+3-2)  Linear Probing 기법
+    - 폐쇄 해슁(Close Hashing) : 해쉬 테이블 저장공간 안에서 충돌 문제를 해결하는 기법
+    : 충돌이 일어나면, 해당 hash address의 다음 address부터 맨 처음 나오는 빈공간에 저장하는 기법
+    > 저장공간 활용도를 높이기 위한 기법
+"""
+hash_table = list([0 for i in range(8)])
+
+def get_key(data) :
+    return hash(data)
+
+def hash_function(key) :
+    return key % 8
+
+def save_data(data, value) :
+    index_key = get_key(data)
+    hash_address = hash_function(index_key)
+    if hash_table[hash_address] != 0: # 데이터가 들어가 있다
+        for index in range(hash_address, len(hash_table)) :
+            if hash_table[index] == 0 :
+                hash_table[index] = [[index_key, value]]
+                return
+            elif hash_table[index][0] == index_key :
+                hash_table[index][1] = value
+                return
+    else :
+        hash_table[hash_address] = [index_key, value]
+
+def read_data(data) :
+    index_key = get_key(data)
+    hash_address = hash_function(index_key)
+    if hash_table[hash_address] != 0: # 데이터가 존재한다면
+        for index in range(hash_address, len(hash_table)):
+            if hash_table[index] == 0:
+                return None
+
+            elif hash_table[index][0] == index_key :
+                return hash_table[index][1]
+    else : # 데이터가 존재하지 않음
+        return None
+
+print(hash('dk') % 8)
+print(hash('da') % 8)
+print(hash('dc') % 8)
+
+save_data('dk', '01200123123')
+save_data('da', '33333333333')
+print(read_data('dc'))
+print(read_data('dk'))
+print(read_data('da'))
+
+"""
+3) 충돌(Collision) 해결 알고리즘
+3-3) 빈번한 충돌을 개선하는 기법
+    해쉬 함수를 재정의 및 해쉬 테이블 저장공간을 확대
+
+* 해쉬 함수와 키 생성 함수
+SHA1 : 고정된 길이의 해쉬 함수 제공
+SHA256 : SHA1 보다 더 긴 해쉬 공간 제공
+>> 블록체인에 사용됨
+"""
+"""
+import hashlib
+data = 'test'.encode()
+hash_object = hashlib.sha1()
+hash_object.updata(data)
+hex_dig = hash_object.hexdigest()
+print(hex_dig)
+
+import hashlib
+data = 'test'.encode()
+hash_object = hashlib.sha256()
+hash_object.updata(data)
+hex_dig = hash_object.hexdigest()
+print(hex_dig)
+"""
+
+import hashlib
+
+hash_table = list([0 for i in range(8)])
+
+def get_key(data) :
+    hash_object = hashlib.sha256()
+    hash_object.object.hexdigest()
+    return int(he_dig, 16)
+
+def hash_function(key) :
+    return key % 8
+
+def save_data(data, value) :
+    index_key = get_key(data)
+    hash_address = hash_function(index_key)
+    if hash_table[hash_address] != 0: # 데이터가 들어가 있다
+        for index in range(hash_address, len(hash_table)) :
+            if hash_table[index] == 0 :
+                hash_table[index] = [[index_key, value]]
+                return
+            elif hash_table[index][0] == index_key :
+                hash_table[index][1] = value
+                return
+    else :
+        hash_table[hash_address] = [index_key, value]
+
+def read_data(data) :
+    index_key = get_key(data)
+    hash_address = hash_function(index_key)
+    if hash_table[hash_address] != 0: # 데이터가 존재한다면
+        for index in range(hash_address, len(hash_table)):
+            if hash_table[index] == 0:
+                return None
+
+            elif hash_table[index][0] == index_key :
+                return hash_table[index][1]
+    else : # 데이터가 존재하지 않음
+        return None
+
+print(get_key('db') % 8)
+print(get_key('da') % 8)
+print(get_key('dh') % 8)
+
+"""
+6. 시간 복잡도
+    - 일반적인 경우(충돌이 없는 경우) : O(1) / 보통 O(1) 이라고 한다.
+    - 최악의 경우(충돌이 있는 경우) : O(n)
+"""
