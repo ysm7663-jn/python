@@ -81,6 +81,22 @@ a.append(ex)
 print('a - ', a)    # [2, 3, 4, 7, 8, 9]
 # a.append(ex)  # [2, 3, 4, 7, [8, 9]] : 리스트 자체가 추가가 된다
 
+# 리스트 컴프리헨션
+list_comp = [i for i in range(10)]
+print(list_comp) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+list_comp2 = [i for i in range(10) if i % 2 == 0]
+print(list_comp2) # [0, 2, 4, 6, 8]
+
+list_comp3 = [i * i for i in range(10)]
+print(list_comp3) # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+# n * m 크기의 2차원 리스트 초기화
+n = 4
+m = 3
+list_comp4 = [[0] * m for _ in range(n)]
+print(list_comp4) # [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
 
 # 삭제 remove(해당 원소를 제거), pop(마지막 원소 출력 후 제거), del(인덱스)
 
