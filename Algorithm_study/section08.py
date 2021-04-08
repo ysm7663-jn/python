@@ -82,8 +82,69 @@ class Heap :
             parent_idx = inserted_idx // 2 # 부모 노드
             self.heap_array[inserted_idx], self.heap_array[parent_idx] = self.heap_array[parent_idx], self.heap_array[inserted_idx] # swap / 부모 노드와 입력 받은 노드와 swqp
             inserted_idx = parent_idx # 바뀌었기 때문에, 바뀐 후 부모와 비교
-
         return True
+    
+    def move_down(self, popped_idx) :
+        left_child_popped_idx = popped_idx * 2
+        right_child_popped_idx = popped_idx * 2 + 1
+
+        # case1 : 왼쪽 자식 노드도 없을 때
+        if left_child_popped_idx >= len(self.heap_array):
+            return False
+        
+        # case2 : 오른쪽 자식 노드만 없을 때
+        elif right_child_popped_idx >= len(self.heap_array):
+            if self.heap_array[popped_idx] < self.heap_array[left_child_popped_idx]:
+                return True
+            else:
+                return False
+        
+        # case3 : 왼쪽, 오른쪽 자식 노드 모두 있을 때
+        else:
+            if self.heap_array[left_child_popped_idx] > self.heap_array[right_child_popped_idx]:
+                if self.heap_array[popped_idx] < self.heap_array[left_child_popped_idx]:
+                    return True
+                else:
+                    return False
+            else:
+                if self.heap_array[popped_idx] < self.heap_array[right_child_popped_idx]:
+                    return True
+                else:
+                    return False
+
+    # 데이터 삭제
+    def pop(self) :
+        if len(self.heap_array) <= 1:
+            return None
+         
+        # root node 추출   
+        returned_data = self.heap_array[1]
+        self.heap_array[1] = self.heap_array[-1] # 맨 끝 node를 root node로 옮김
+        del self.heap_array[-1] # 맨 끝 node 삭제
+        popped_idx = 1
+
+        while self.move_down(popped_idx) :
+            left_child_popped_idx = popped_idx * 2
+            right_child_popped_idx = popped_idx * 2 + 1 
+
+            # case2 : 오른쪽 자식 노드만 없을 때, 왼쪽 자식은 존재
+            if right_child_popped_idx >= len(self.heap_array):
+                if self.heap_array[popped_idx] < self.heap_array[left_child_popped_idx] :
+                    self.heap_array[popped_idx], self.heap_array[left_child_popped_idx] = self.heap_array[left_child_popped_idx], self.heap_array[popped_idx]
+                    popped_idx = left_child_popped_idx
+                
+            # case3 : 왼쪽, 오른쪽 자식 노드 모두 있을 때
+            else:
+                if self.heap_array[left_child_popped_idx] > self.heap_array[right_child_popped_idx]:
+                    if self.heap_array[popped_idx] < self.heap_array[left_child_popped_idx] :
+                        self.heap_array[popped_idx], self.heap_array[left_child_popped_idx] = self.heap_array[left_child_popped_idx], self.heap_array[popped_idx]
+                        popped_idx = left_child_popped_idx
+                    
+                else:
+                    if self.heap_array[popped_idx] < self.heap_array[right_child_popped_idx]:
+                        self.heap_array[popped_idx], self.heap_array[right_child_popped_idx] = self.heap_array[right_child_popped_idx], self.heap_array[popped_idx]
+                        popped_idx = right_child_popped_idx
+        return returned_data
 
 heap = Heap(15)
 heap.insert(10)
@@ -91,4 +152,6 @@ heap.insert(8)
 heap.insert(5)
 heap.insert(4)
 heap.insert(20)
+print(heap.heap_array)
+heap.pop()
 print(heap.heap_array)
