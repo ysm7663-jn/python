@@ -14,7 +14,7 @@
     - 각 노드의 값은 해당 노드의 자식 노드가 가진 값보다 크거나 같다 (최대 힙의 경우)
     - 긱 노드의 값은 해당 노드의 자식 노드가 가진 값보다 작거나 같다 (최소 힙의 경우)
 3) 완전 이진 트리의 형태를 가짐
-    : 왼쪽 자식부터 채우고, 자식 노드는 2개를 다 가지고 있어야 한다.
+
 
 4) 힙과 이진 탐색 트리의 공통점과 차이점
 공통점 : 힙과 이진 탐색 트리는 모두 이진 트리
@@ -26,3 +26,69 @@
 3. 힙 동작
 1) 힙에 데이터 삽입하기 - 기본 동작
 : 힙은 완전 이진 트리이므로, 삽입할 노드는 기본적으로 왼쪽 최하단부 노드부터 채워디는 형태로 삽입
+
+1-1) 힙에 데이터 삽입하기 - 삽입할 데이터가 힙의 데이터보다 클 경우 (Max Heap 의 예)
+: 먼저 삽입된 데이터는 완전 이진 트리에 맞추어, 최하단 왼쪽 노드부터 채워짐
+: 채워진 노드 위치에서, 부모 노드보다 값이 클 경우, 부모 노드와 위치를 바꿔주는 작업을 반복함 (swap)
+
+2) 힙의 데이터 삭제하기 (Max Heap 의 예)
+: 보통 삭제는 최상단 노드 (root 노드)를 삭제하는 것이 일반적임
+    - 힙의 용도는 최대값과 최소값을 root 노드에 놓아서, 최대값과 최소값을 바로 꺼내 쓸 수 있도록 하는 것
+: 상단의 데이터 삭제시, 가장 최하단부 왼쪽에 위치한 노드 (일반적으로 가장 마지막에 추가한 노드)를 root 노드로 이동
+: root 노드의 값이 child node 보다 작을 경우, root노드의 child node 중 가장 큰 값을 가진 노드와 root 노드 위치를 바꿔주는 작업을 반복함 (swap)
+
+4. 힙 구현
+힙과 배열
+: 일반적으로 힙 구현시 배열 자료구조를 활용
+: 배열은 인덱스가 0부터 시작하지만, 힙 구현의 편의를 위해 root 노드 인덱스 번호를 1로 지정하면, 구현이 좀 더 수월함
+    - 부모 노드 인덱스 번호 (parent's index) = 자식 노드 인덱스 번호 (child node's index) // 2
+    - 왼쪽 자식 노드 인덱스 번호 (left child node's index) = 부모 노드 인덱스 번호 (parent node's index) * 2
+    - 오른쪽 자식 노드 인덱스 번호 (right child node's index) = 부모 노드 인덱스 번호 (parent node's index) * 2 + 1
+"""
+class Heap :
+    def __init__(self, data):
+        self.heap_array = list()
+        self.heap_array.append(None) # index 0번자리에 None을 배치함으로써 계산을 손쉽게 할 수 있게 함
+        self.heap_array.append(data)
+
+# heap = Heap(1)
+# print(heap.heap_array) # [None, 1]
+
+    # 상위 노드와의 swap 
+    def move_up(self, inserted_idx) :
+        if inserted_idx <= 1: # root node 일 때
+            return False
+
+        parent_idx = inserted_idx // 2
+        if self.heap_array[inserted_idx] > self.heap_array[parent_idx] : # 입력 받은 값이 부모 값 보다 더 큰 경우 
+            return True # True를 반환하여 아래 while문에서 swap이 이뤄지도록 함
+        else :
+            return False # 부모 값이 더 크거나, root node 일 때 
+
+
+    # 데이터 삽입 (맨 마지막에 들어감)
+    def insert(self, data):
+        if len(self.heap_array) == 0: # 루트 노드가 없을 경우
+            self.heap_array.append(None)
+            self.heap_array.append(data)
+            return True
+
+        self.heap_array.append(data)
+
+        # 데이터가 이미 들어가 있는 경우
+        inserted_idx = len(self.heap_array) - 1
+
+        while self.move_up(inserted_idx) :
+            parent_idx = inserted_idx // 2 # 부모 노드
+            self.heap_array[inserted_idx], self.heap_array[parent_idx] = self.heap_array[parent_idx], self.heap_array[inserted_idx] # swap / 부모 노드와 입력 받은 노드와 swqp
+            inserted_idx = parent_idx # 바뀌었기 때문에, 바뀐 후 부모와 비교
+
+        return True
+
+heap = Heap(15)
+heap.insert(10)
+heap.insert(8)
+heap.insert(5)
+heap.insert(4)
+heap.insert(20)
+print(heap.heap_array)
