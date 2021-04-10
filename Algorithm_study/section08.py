@@ -155,3 +155,9 @@ heap.insert(20)
 print(heap.heap_array)
 heap.pop()
 print(heap.heap_array)
+
+"""
+5. 힙 시간 복잡도
+: depth(트리의 높이)를 h라고 표기한다면,
+: n개의 노드를 가지는 heap에 데이터 삽입 또는 삭제시, 최악의 경우 root 노드에서 leaf 노드까지 비교해야 하므로 h = logn에 가까우므로, 시간 복잡도는 O(logn)
+    - 한번 실행시마다, 50%의 실행할 수도 있는 명령을 제거한다는 의미. 즉 50%ㅇ의 실행시간을 단축시킬 수 있다는 것을 의미함
