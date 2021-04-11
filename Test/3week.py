@@ -24,45 +24,37 @@ class LinkedQueue:
         self.rear = None
  
     def is_empty(self):
-        if self.front == self.rear :
+        if self.front is None:
             return True
-        else :
+        else:
             return False
  
     def put(self, data):
-        
-
+        if self.rear is None:
+            self.front = Node(data)
+            self.rear = self.front
+        else:
+            self.rear = Node(data, self.rear, None)
+            self.rear.prev.next = self.rear
+ 
     def get(self):
-        print(self.front.data)
-        del front.data
+        if self.front is None:
+            return None
+        elif self.front is self.rear:
+            data = self.front.data
+            self.front, self.rear = None, None
+        else:
+            data = self.front.data
+            self.front = self.front.next
+            self.front.prev = None
+        return data
  
     def peek(self):
-        return self.front.data
+        if self.front is None:
+            return None
+        else:
+            return self.front.data
  
-# Test code
-queue = LinkedQueue()
- 
-print(queue.is_empty())
-for i in range(10):
-    queue.put(i)
-print(queue.is_empty())
- 
-for _ in range(11):
-    print(queue.get(), end=' ')
-print()
- 
-for i in range(20):
-    queue.put(i)
-print(queue.is_empty())
- 
-for _ in range(5):
-    print(queue.peek(), end=' ')
-print()
- 
-for _ in range(21):
-    print(queue.get(), end=' ')
-print()
-print(queue.is_empty())
 
 """
 # 2번 
@@ -141,7 +133,14 @@ class Tree:
         self.root = root
  
     def preorder(self):
-        pass
+        def recursion(node):
+            print(node.data, end=' ')
+            if node.left:
+                recursion(node.left)
+            if node.right:
+                recursion(node.right)
+        recursion(self.root)
+ 
  
 # Test code
 root = Node(5, Node(2, Node(7, Node(4), Node(1)), Node(3)), Node(9, Node(6), Node(10)))
@@ -176,9 +175,36 @@ class Node:
         self.next = None
  
 class ChainedHashTable(HashTable):
-    
-    
-# Test code
+    def __init__(self):
+        super().__init__()
+ 
+    def set(self, key, value):
+        idx = self.hash_func(key)
+        if self.table[idx] is None:
+            self.table[idx] = Node(key, value)
+        else:
+            node = self.table[idx]
+            while node.next is not None:
+                if node.key == key:
+                    node.data = value
+                    return
+                node = node.next
+            node.next = Node(key, value)
+ 
+    def get(self, key):
+        idx = self.hash_func(key)
+        if self.table[idx] is None:
+            return None
+        else:
+            node = self.table[idx]            
+            while node.next is not None:
+                if node.key == key:
+                    return node.data
+                node = node.next
+            if node.key == key:
+                return node.data
+            else:
+                return None
  
 ht = ChainedHashTable()
 ht.set('hello', 1)
