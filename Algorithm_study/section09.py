@@ -20,7 +20,8 @@ data_list = random.sample(range(100),50)
 print(bubblesort(data_list))
 
 """
-시간 분석 : O(n^2)
+시간 복잡도 : O(n^2)
     최악의 경우 : n * (n - 1) / 2 
 정렬이 돼있는 경우 : O(n)
 
+"""
