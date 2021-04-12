@@ -8,6 +8,7 @@
 - 일반적인 상황에서 그리디 알고리즘은 최적의 해를 보장할 수 없을 때가 많다
 - 코테에서의 대부분의 그리디 문제는 탐욕법으로 얻은 해가 최적의 해가 되는 상황에서, 이를 추론할 수 있어야 풀리도록 출제된다.
 """
+"""
 # 3-1 거스름돈
 # 가장 큰 화폐 단위부터 거슬러 준다
 # 화폐의 종류가 K일 때, 소스코드의 시간 복잡도는 O(K)
@@ -92,4 +93,33 @@ for i in data :
         result += 1
         count = 0
 print(result)
+
+# 3-5 큰 수의 법칙
+n, m, k = map(int, input().split())
+
+num = list(map(int, input().split()))
+num.sort()
+
+cnt = 0
+sum = 0
+
+first = num[-1]
+second = num[-2]
+while True :
+
+    for i in range(k) :
+        if m == 0 :
+            break
+        sum += first
+        m -= 1
+    if m == 0 :
+        break    
+    sum += second
+    m -= 1
+
+print(sum)
+"""
+# 3-6 숫자 카드 게임
+
+
 
