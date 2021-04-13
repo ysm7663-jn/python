@@ -164,3 +164,35 @@ for i in range(len(data)-1) :
             count1 += 1
 print(min(count0, count1))
 """
+
+# 3-8 만들 수 없는 금액
+"""
+n = int(input())
+data = list(map(int, input().split()))
+
+data.sort()
+
+target = 1
+for x in data :
+    if target < x :
+        break
+    target += x
+print(target)
+"""
+
+# 3-9 볼링공 고르기
+"""
+n, m = map(int, input().split())
+
+data = list(map(int, input().split()))
+data.sort()
+
+cnt = 0
+for i in range(len(data)) :
+    for j in range(i+1, len(data)) :
+        if data[i] != data[j] :
+            cnt += 1
+        else :
+            pass
+print(cnt)
+"""
