@@ -24,6 +24,7 @@ def binary_search(data, search):
         return False
 
     medium = len(data) // 2
+    print('mid',medium)
     if search == data[medium]:
         return True
     else :
@@ -34,7 +35,7 @@ def binary_search(data, search):
 
 import random
 
-data_list = random.sample(range(100), 10)
+data_list = random.sample(range(100), 9)
 data_list.sort()
 print(data_list)
 print(binary_search(data_list, 7))
