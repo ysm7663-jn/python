@@ -120,6 +120,34 @@ while True :
     m -= 1
 print(sum)
 """
+"""
+내 풀이
+n, m, k = map(int,input().split())
+
+data = list(map(int,input().split()))
+
+data.sort()
+first = data[-1]
+second = data[-2]
+
+sum = 0
+cnt = 0
+for i in range(m) :
+    if m == 0:
+        break
+    
+    if cnt == k :
+        sum += second
+        cnt = 0 
+        print('second', sum)
+    else :
+        sum += first
+        cnt += 1
+        print('first', sum)
+print(sum)
+"""
+
+
 # 3-6 숫자 카드 게임
 """
 n, m = map(int,input().split())
