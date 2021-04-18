@@ -21,12 +21,23 @@ target = 13
 출력: False
 """
 def searchMatrix(matrix, target):
-    for i in range(len(searchMatrix)+1):
-        for j in range(len(searchMatrix)+1):
-            if searchMatrix[i][j] == target:
-                return True
-            else:
-                return False
+  if len(matrix) == 1:
+    for i in range(len(matrix[0])):
+        if matrix[0][i] == target:
+            return True
+    return False
+  elif len(matrix) == 0: 
+      return False
+  else:
+    mid = len(matrix) // 2
+    for i in range(len(matrix[mid])):
+      if matrix[mid][i] == target:
+        return True
+      else:
+        if matrix[mid][0] > target:
+          return searchMatrix(matrix[:mid], target)
+        else:
+          return searchMatrix(matrix[mid:], target)
     
 
 matrix = [[1, 3, 5, 7],[10, 11, 16, 20],[23, 30, 34, 50]]
@@ -42,8 +53,49 @@ print(searchMatrix(matrix, 13))
 위 조건을 만족하는 C가 없으면 빈 문자열을 C로 한다.
 이 때, 문자열 A와 B를 입력받아 C를 출력하는 프로그램을 작성하시오.
 
-"""
+예시입력1
+A = 'ababcde'
+B = 'ababcde'
+출력: 'ababcde'
 
+예시입력2
+A = 'ababababab'
+B = 'abab'
+출력: 'ab'
+
+예시입력3
+A = 'abababab'
+B = 'abab'
+출력: 'abab'
+
+예시입력4
+A = 'fast'
+B = 'campus'
+출력: '
+"""
+from math import gcd
+def gcdString(A, B):
+    
+    if A+B != B+A:
+        return ''
+
+    len_A = len(A)
+    len_B = len(B)
+    result_gcd = (gcd(len_A, len_B))
+
+    
+    if len_A < len_B:
+        return A[0 : result_gcd]
+    else:
+        return B[0 : result_gcd]
+
+print(gcdString('ababcde','ababcde'))
+print(gcdString('ababababab','abab'))
+print(gcdString('abababab','abab'))
+print(gcdString('fast','campus'))
+print(gcdString('abc','bcd'))
+print(gcdString('abc','abcabc'))
+    
 # 과제 3
 """
 n개의 노드가 있는 그래프가 있다. 각 노드는 1부터 n까지 번호가 적혀있다. 1번 노드에서 가장 멀리 떨어진 노드의 갯수를 구하려고 한다. 가장 멀리 떨어진 노드란 최단경로로 이동했을 때 간선의 개수가 가장 많은 노드들을 의미한다.
