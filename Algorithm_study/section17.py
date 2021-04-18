@@ -30,7 +30,7 @@ def binary_search(data, search):
     else :
         if search > data[medium]:
             return binary_search(data[medium:], search)
-        else:
+        else:   
             return binary_search(data[:medium], search)   
 
 import random
