@@ -24,7 +24,7 @@ print(graph) # {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A', 'G', 'H', 'I'], 'D'
 def bfs(graph, start_node):
     visited = list()
     need_visit = list()
-
+    # visited : 큐 / need_visit : 큐
     need_visit.append(start_node)
 
     while need_visit:
