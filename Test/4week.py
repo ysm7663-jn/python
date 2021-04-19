@@ -12,24 +12,58 @@ put(): Priority Queue에 자료를 입력한다. 자료는 길이가 2인 Tuple�
 get(): Priority Queue에서 자료를 출력한다. 출력한 데이터는 Priority Queue에서 삭제한다. 더이상 출력할 데이터가 없는 경우 None을 출력한다.
 peek(): Priority Queue에서 자료를 출력한다. 출력한 데이터는 Priority Queue에 그대로 유지한다. 더이상 출력할 데이터가 없는 경우 None을 출력한다.
 """
-"""
-
 class PriorityQueue:
     def __init__(self):
-        pass
+        self.tree = [None]
  
     def is_empty(self):
-        pass
+        return len(self.tree) == 1
  
     def put(self, data):
-        pass
+        self.tree.append(data)
+        curr = len(self.tree) - 1
+        parent = curr // 2
+        while parent > 0:
+            if self.tree[curr][0] > self.tree[parent][0]:
+                return
+            self.tree[curr], self.tree[parent] = self.tree[parent], self.tree[curr]
+            curr = parent
+            parent = curr // 2
  
     def get(self):
-        pass
+        if self.is_empty() is True:
+            return None
+        data = self.tree[1]
+        self.tree[1] = self.tree[-1]
+        self.tree = self.tree[:-1]
+        curr = 1
+        while curr < len(self.tree):
+            left = curr * 2
+            right = curr * 2 + 1
+            if left < len(self.tree) and right < len(self.tree):
+                if self.tree[left][0] < self.tree[right][0]:
+                    if self.tree[left][0] < self.tree[curr][0]:
+                        self.tree[curr], self.tree[left] = self.tree[left], self.tree[curr]
+                        curr = left
+                else:
+                    if self.tree[right][0] < self.tree[curr][0]:
+                        self.tree[curr], self.tree[right] = self.tree[right], self.tree[curr]
+                        curr = right
+ 
+            elif left < len(self.tree) and self.tree[left][0] < self.tree[curr][0]:
+                self.tree[curr], self.tree[left] = self.tree[left], self.tree[curr]
+                curr = left
+            elif right < len(self.tree) and self.tree[right][0] < self.tree[curr][0]:
+                self.tree[curr], self.tree[right] = self.tree[right], self.tree[curr]
+                curr = right
+            else:
+                break
+        return data
  
     def peek(self):
-        pass
-# Test code
+        if self.is_empty() is True:
+            return None
+        return self.tree[1]
  
 pq = PriorityQueue()
 pq.put((0, 'a'))
@@ -46,7 +80,6 @@ print(pq.get())
 print(pq.get())
 print(pq.get())
 print(pq.get())
-"""
 """
 2번.
 오름차순으로 정렬된 N개의 정수를 가진 List가 주어져있을 때,
@@ -88,15 +121,22 @@ N개의 문자열로 이루어진 List에서 전체 문자열이 앞 n개 문자
 """
 
 def solution(a):
-    for i in a :
-        for j in a :
-            print(j, end=' ')        
-        print()
-    return 0
-# Test code
+    count = 0
+    w = a[0]
+    for idx, c in enumerate(w):
+        is_match = True
+        for w_ in a:
+            if c != w_[idx]:
+                is_match = False
+                break
+        if is_match is True:
+            count += 1
+        else:
+            break
+    return count
+ 
 print(solution(['abcd', 'abce', 'abchg', 'abcfwqw', 'abcdfg'])) # 3
-# print(solution(['abcd', 'gbce', 'abchg', 'abcfwqw', 'abcdfg'])) # 0
-print('------')
+print(solution(['abcd', 'gbce', 'abchg', 'abcfwqw', 'abcdfg'])) # 0
 
 """
 4번
@@ -114,41 +154,19 @@ print('------')
 """
 
 def solution(n):
-
-    check = False
-
-    sum = 0
-    
-    while True :
-        
-        if n // 100 > 0 :
-            baek = n // 100
-            ship = n % 100
-            ill = n % 10
-            time_baek = pow(baek, 2)
-            time_ship = pow(ship, 2)
-            time_ill = pow(ill, 2)
-            print(time_baek, time_ship, time_ill)
-            sum = time_baek + time_ship + time_ill
-            print(sum)
-            
-        else :    
-            ship = n // 10
-            ill = n % 10
-            time_ship = pow(ship, 2)
-            time_ill = pow(ill, 2)
-            print(time_ship, time_ill)
-            sum = time_ship + time_ill
-            print(sum)
-            
-        if sum == 1:
-            check = True
-            return check
-        else :
-            n = sum
-    return check
+    def calc_value(m):
+        val = 0
+        for c in str(m):
+            val += int(c) ** 2
+        return val
  
-# Test code
+    hist = set()
+    while n != 1:
+        hist.add(n)
+        n = calc_value(n)
+        if n in hist:
+            return False
+    return True
+ 
 print(solution(19)) # True
-# print(solution(61)) # False
-
+print(solution(61)) # False
