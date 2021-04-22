@@ -20,6 +20,8 @@ matrix = [
 target = 13
 출력: False
 """
+"""
+내 답
 def searchMatrix(matrix, target):
   if len(matrix) == 1:
     for i in range(len(matrix[0])):
@@ -43,6 +45,67 @@ def searchMatrix(matrix, target):
 matrix = [[1, 3, 5, 7],[10, 11, 16, 20],[23, 30, 34, 50]]
 print(searchMatrix(matrix, 3))
 print(searchMatrix(matrix, 13))
+"""
+def searchMatrix(matrix, target):
+    def searchRow(sub_matrix):
+        m = len(sub_matrix)
+ 
+        if m == 1:
+            return sub_matrix[0]
+ 
+        mid = m // 2
+        left = sub_matrix[:mid]
+        right = sub_matrix[mid+1:]
+ 
+        if sub_matrix[mid][0] <= target <= sub_matrix[mid][-1]:
+            return sub_matrix[mid]
+        elif sub_matrix[mid][0] > target:
+            return searchRow(left)
+        else:
+            return searchRow(right)
+ 
+    def searchCol(array):
+        n = len(array)
+ 
+        if n == 0:
+            return False
+ 
+        if n == 1:
+            if array[0] == target:
+                return True
+            else:
+                return False
+ 
+        mid = n // 2
+        left = array[:mid]
+        right = array[mid+1:]
+ 
+        if array[mid] == target:
+            return True
+        elif array[mid] > target:
+            return searchCol(left)
+        else:
+            return searchCol(right)
+ 
+    array = searchRow(matrix)
+    return searchCol(array)
+ 
+ 
+matrix = [
+  [1,   3,  5,  7],
+  [10, 11, 16, 20],
+  [23, 30, 34, 50]
+]
+target = 3
+print(searchMatrix(matrix, target))
+ 
+matrix = [
+  [1,   3,  5,  7],
+  [10, 11, 16, 20],
+  [23, 30, 34, 50]
+]
+target = 13
+print(searchMatrix(matrix, target))
 
 # 과제 2
 """
@@ -111,6 +174,28 @@ n	vertex	return
 6	[[3, 6], [4, 3], [3, 2], [1, 3], [1, 2], [2, 4], [5, 2]]	3
 
 """
+import heapq
+ 
+def solution(n, vertex):
+    to_visit = []
+    dists = [float('inf')] * (n + 1)
+ 
+    dists[1] = 0
+    heapq.heappush(to_visit, (0, 1))
+    while len(to_visit) > 0:
+        dist, node = heapq.heappop(to_visit)
+        adj_list = list(map(lambda x: x[1], filter(lambda x: x[0] == node, vertex)))
+        adj_list += list(map(lambda x: x[0], filter(lambda x: x[1] == node, vertex)))
+        for adj_node in adj_list:
+            if dists[adj_node] > dist + 1:
+                dists[adj_node] = dist + 1
+                heapq.heappush(to_visit, (dists[adj_node], adj_node))
+ 
+    return dists.count(max(dists[1:]))
+ 
+n = 6
+vertex = [[3, 6], [4, 3], [3, 2], [1, 3], [1, 2], [2, 4], [5, 2]]
+print(solution(n, vertex))
 
 # 과제 4
 """
@@ -134,3 +219,16 @@ N	trust	출력
 3	[[1,2],[2,3]]	-1
 4	[[1,3],[1,4],[2,3],[2,4],[4,3]]	3
 """
+def solution(N, trust):
+    for i in range(1, N + 1):
+        if len(list(filter(lambda x: x[0] == i, trust))) > 0:
+            continue
+        if len(list(filter(lambda x: x[1] == i, trust))) == N - 1:
+            return i
+    return -1
+ 
+print(solution(2, [[1,2]])) # 2
+print(solution(3, [[1,3],[2,3]])) #3
+print(solution(3, [[1,3],[2,3],[3,1]])) #-1
+print(solution(3, [[1,2],[2,3]])) #-1
+print(solution(4, [[1,3],[1,4],[2,3],[2,4],[4,3]])) #3
