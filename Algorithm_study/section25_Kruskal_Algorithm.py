@@ -103,6 +103,7 @@ def kruskal(graph):
     # 2. 간선 weight 기반 sorting
     edges = graph['edges']
     edges.sort()
+    print(edges)
 
     # 3. 간선 연결 (사이클 없는)
     for edge in edges:
