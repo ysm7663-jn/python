@@ -1,13 +1,5 @@
-def solution(numbers):
-    answer = []
+data_list = [1, 1, 3, 4, 1]
 
-    for i in range(len(numbers)):
-        for j in range(i+1, len(numbers)):
-            answer.append(numbers[i]+numbers[j])
-    answer = sorted(list(set(answer)))
-
-    return answer
-
-
-
-    
+f_data = data_list[4] 
+print(f_data)
+print(data_list.index(f_data))
