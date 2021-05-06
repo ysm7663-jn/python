@@ -4,7 +4,7 @@
 # 문자열 중요성(가장 많은 분야에서 사용)
 
 # 문자열 생성
-str1 = "I am Boy."
+str1 = "Hello, My name is Park"
 str2 = 'NiceMan'
 str3 = """How are you?"""
 str4 = '''Thank you!'''
@@ -142,10 +142,11 @@ y
 # 역순은 오른쪽부터 -1
 # 끝에 수 -1까지
 # 일부분 추출(정말 중요)
-str_sl = 'Niceboy'
+str_sl = 'Good Boy'
 
 # 슬라이싱 연습
 print(str_sl[0:3])
+print(str_sl[0:9])
 print(str_sl[:len(str_sl)]) # 0 ~ 6
 print(str_sl[:len(str_sl) - 1]) # 0 ~ 5
 print(str_sl[:])    # 처음부터 끝까지
