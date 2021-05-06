@@ -1,7 +1,9 @@
 # Section04-1
 # 파이썬 데이터 타입(자료형)
 # 데이터타입, 숫자형, 숫자형 연산
-
+print(10/2)
+print(10//2)
+print(10%3)
 '''
 int : 정수
 float : 실수
@@ -169,8 +171,8 @@ print(complex(False))  # Bool -> 복소수
 print(abs(-7))  # 절대값 / 7
 x, y = divmod(100, 8)   #x = 몫, y = 나머지
 print(x, y)
-print(pow(5, 3))    # pow(x, y) >> x의 y승
-
+print(pow(2, 3))    # pow(x, y) >> x의 y승
+print(2 ** 3)
 #외부 모듈
 import math
 
