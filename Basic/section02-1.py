@@ -16,7 +16,7 @@ print()
 # Separator 옵션 사용
 
 print('T', 'E', 'S', 'T')
-print('T', 'E', 'S', 'T', sep='')
+print('T', 'E', 'S', 'T', sep=' ')
 
 print('2021', '03', '16') 
 print('2021', '03', '16', sep='-')
@@ -37,14 +37,18 @@ print()
 print('{} and {}'.format('You', 'Me'))
 print("{0} and {1} and {0}".format('You', 'Me'))
 print("{a} are {b}".format(a='You', b='Me'))
+print('{0} and {1} and {2}'.format('apple', 'banana', 'candy'))
 
 # %s : 문자, %d : 정수, %f : 실수
 print("%s's favorite number is %d" % ('Kim', 7))
+print('%s is %d year\'s old and his avg is %f' %('Kevin', 15, 1.5))
 
 print()
 
-print("Test1 : %5d, price : %4.2f" %(776, 6534.123))
+print("Test1 : %5d, price : %2.4f" %(776, 6534.123))
+print('%s score is %5d' %('math', 95)) 
 print("Test1 : {0: 5d}, price :{1: 4.2f}".format(776,6534.123))
+print('%s score is %.2f' %('korea', 89.5423)) 
 print("Test1 : {a: 5d}, price :{b: 4.2f}".format(a=776, b=6534.123))
 
 print()
