@@ -1,16 +1,14 @@
 def solution(d, budget):
     answer = 0
-    sum = 0
-
-    while True:
-        
-        sum += d[answer]
-        if sum > budget:
-            return answer
-        elif sum == budget:
-            return answer + 1
-        else:
+    d.sort()
+    
+    for i in range(len(d)):
+        if d[i] <= budget:
             answer += 1
+            budget -= d[i]
+        else:
+            break
+    return answer
 
 print(solution([1, 3, 2, 5, 4], 9))
 print(solution([2, 2, 3, 3], 10))
