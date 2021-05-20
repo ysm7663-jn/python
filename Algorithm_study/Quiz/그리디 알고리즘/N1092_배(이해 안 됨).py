@@ -15,7 +15,7 @@ checked = [False] * M
 
 result = 0
 count = 0
-
+ 
 while True:
 
     if count == len(box):
