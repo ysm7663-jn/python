@@ -36,6 +36,3 @@ while True:
             print('---')
     result += 1
 print(result)
-
-
-
