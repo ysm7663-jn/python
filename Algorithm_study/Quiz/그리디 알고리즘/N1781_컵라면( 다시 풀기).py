@@ -2,18 +2,17 @@ import heapq
 
 N = int(input())
 
-list = []
-result = 0
+array = []
 
-for i in range(N):
+for _ in range(N):
     x, y = map(int,input().split())
-    list.append((x, y))
+    array.append((x, y))
 
-list.sort()
+array.sort()
 
 queue = []
 
-for i in list:
+for i in array:
     heapq.heappush(queue, i[1])
     if i[0] < len(queue):
         heapq.heappop(queue)
