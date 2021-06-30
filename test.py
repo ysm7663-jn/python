@@ -58,4 +58,3 @@ for i in range(1, N):
 
 answer = sum(result)
 print(answer)
-
