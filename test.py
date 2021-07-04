@@ -53,9 +53,6 @@ for i in range(1, N):
         mid = len(list) // 2
     result.append(list[mid])
     
-    
-
-    
     print(result)
 
 answer = sum(result)
