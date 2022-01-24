@@ -8,4 +8,5 @@ elif str1[0] == ' ' or str1[len(str1)-1] == ' ' :
     
 else :
     print(str1.count(' ') + 1)
+
     
